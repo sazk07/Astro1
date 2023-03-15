@@ -1,0 +1,21 @@
+---
+import Social from "./Social.astro";
+---
+<style>
+  .linkedin {
+      padding: 0.5rem 1rem;
+      color: white;
+      background-color: #4c1d95;
+      text-decoration: none;
+    }
+    footer {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+</style>
+<footer>
+  <Social platform="twitter" username="sha_2_5_6" platformName="Twitter" />
+  <Social platform="github" username="sazk07" platformName="GitHub" />
+  <a href="http://linkedin.com/in/sazk" class="linkedin">LinkedIn</a>
+</footer>
