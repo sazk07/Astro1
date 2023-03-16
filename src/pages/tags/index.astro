@@ -1,6 +1,8 @@
 ---
-import BaseLayout from "./BaseLayout.astro";
-const { frontmatter } = Astro.props
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const allMarkdowns = await Astro.glob('../posts/*.md')
+const tags = [...new Set(allMarkdowns.map(markdown => markdown.frontmatter.tags).flat())]
+const title= "Tag Index"
 ---
 <style>
   a {
@@ -20,13 +22,9 @@ const { frontmatter } = Astro.props
       background-color: #f8fcfd;
     }
 </style>
-<BaseLayout titlePage={frontmatter.title}>
-  <img src={frontmatter.image.url} alt={frontmatter.image.alt} width="300">
-  <p><em>{frontmatter.description}</em></p>
-  <p>written by {frontmatter.author}</p>
-  <p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+<BaseLayout titlepage={title}>
   <div class="tags">
-    {frontmatter.tags.map(tag => (
+    {tags.map(tag => (
       <p class="tag">
         <a href={`/tags/${tag}`}>
           {tag}
@@ -34,5 +32,4 @@ const { frontmatter } = Astro.props
       </p>
     ))}
   </div>
-  <slot />
 </BaseLayout>

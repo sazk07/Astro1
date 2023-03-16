@@ -9,8 +9,8 @@ export async function getStaticPaths() {
       markdown.frontmatter.tags.includes(tag)
     ))
     return {
-        params: { tag },
-        props: { markdowns: filteredMarkdowns },
+      params: { tag },
+      props: { markdowns: filteredMarkdowns },
       }
     })
   }
