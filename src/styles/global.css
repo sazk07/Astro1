@@ -2,6 +2,10 @@ html {
   background-color: #f1f5f9;
   font-family: sans-serif;
 }
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
 * {
   box-sizing: border-box;
 }
@@ -51,6 +55,9 @@ h1 {
 }
 .expanded {
   display: unset;
+}
+.dark .nav-links a {
+  color: #fff;
 }
 @media screen and (min-width: 636px) {
   .nav-links {
